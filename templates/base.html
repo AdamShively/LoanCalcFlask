@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en"">
+<head>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Amortization Loan Calculator">
+  <meta name="author" content="Adam Shively">
+  <title>Loan Calc</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{url_for('.static', filename='base.css')}}">
+
+  <!-- Font Awesome -->
+  <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.24.1/feather.min.js" crossorigin="anonymous"></script>
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="static/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="static/images/favicon-16x16.png">
+  <link rel="manifest" href="static/site.webmanifest">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm bg-gradient-primary-to-secondary bottom-solid-border box-shadow">
+      <div class="container-fluid">
+          <a href="/index" class="navbar-brand">
+              <img src="{{url_for('static', filename='images/logo.png')}}"
+                   style="height:55px;" alt="Adam's logo">
+          </a>
+          <button class="navbar-toggler btn-orange" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                  aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+              <ul class="navbar-nav flex-grow-1">
+                  <li class="nav-item">
+                    <a href="/index" class="nav-link text-light fw-bold">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/calc" class="nav-link text-light fw-bold">Loan Calc</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link text-light fw-bold" target="_blank" href="https://adamshively.netlify.app/">My Website</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link text-light fw-bold" target="_blank" href="https://github.com/AdamShively/LoanCalcFlask">Git Repo</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+    </nav>
+
+    <header class="banner">
+      <div class="page-header-ui-content position-relative">
+          <div class="container px-5 text-center">
+              <div class="row gx-5 justify-content-center">
+                  <div class="col-lg-8 mt-5">
+                      <h1 class="text-orange light-outline">{{header_text[0]}}</h4>
+                      <h4 class="text-orange light-outline">{{header_text[1]}}</h4>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="svg-border-rounded text-light">
+          <!-- Rounded SVG Border-->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144.54 17.34" preserveAspectRatio="none" fill="currentColor"><path d="M144.54,17.34H0V0H144.54ZM0,0S32.36,17.34,72.27,17.34,144.54,0,144.54,0"></path></svg>
+      </div>
+  </header>
+
+  <main>
+    <div class="container-fluid">
+        {% block content %}{% endblock %}
+    </div>
+    <div class="svg-border-rounded text-dark">
+      <!-- Rounded SVG Border-->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144.54 17.34" preserveAspectRatio="none" fill="currentColor"><path d="M144.54,17.34H0V0H144.54ZM0,0S32.36,17.34,72.27,17.34,144.54,0,144.54,0"></path></svg>
+  </div>
+  </main>
+
+  <footer class="footer bg-dark py-4">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-md-6 copy-right d-flex justify-content-center text-light fw-bold">Copyright &copy; Adam Shively</div>
+            <div class="col-md-6 icon-list-social d-flex align-items-center justify-content-center pt-1">
+                <a class="icon-list-social-link px-1" href="https://www.linkedin.com/in/adam-shively-42162a239/" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+                <a class="icon-list-social-link px-1" href="https://github.com/AdamShively/" target="_blank"><i class="fab fa-github fa-2x"></i></a>
+                <a class="icon-list-social-link px-1" href="https://www.youtube.com/channel/UCoyDVmowhwAFrvyqU6p4w3w" target="_blank"><i class="fab fa-youtube fa-2x"></i></a>
+            </div>
+            
+        </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+</body>
+</html>

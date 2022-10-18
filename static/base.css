@@ -1,0 +1,69 @@
+:root {
+  --light: #f2f6fc;
+  --lighter-gray: #787878;
+  --lighter-orange: #fe692f;
+}
+
+html, body {
+  font-family: 'Dosis', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f2f6fc;;
+}
+
+.bg-gradient-primary-to-secondary {
+  background-image: linear-gradient(135deg, var(--lighter-orange) 0%, var(--lighter-gray) 100%);
+}
+
+.btn-gradient-primary-to-secondary {
+  background-image: linear-gradient(135deg, var(--lighter-gray) 0%, #2a2a2a 100%);
+}
+
+.btn-gradient-primary-to-secondary:hover {
+  background-image: linear-gradient(135deg, #525252 0%, #808080 100%);
+}
+
+.text-orange {
+  color: var(--lighter-orange);
+}
+
+.bottom-solid-border {
+  border-bottom: 4px solid  orangered;
+}
+
+.nav-link:hover {
+  color: rgb(75, 75, 75) !important;
+}
+
+.navbar-fixed-top {
+  border: 0;
+}
+
+.navbar-toggle {
+  left: 50px;
+  bottom: -10px;
+}
+
+.navbar-nav {
+  font-size: 20px;
+}
+
+.banner {
+  background-image: url("images/banner.png");
+}
+
+.light-outline {
+  text-shadow: 1px 0 0 var(--light), 0 -1px 0 var(--light), 0 1px 0 var(--light), -1px 0 0 var(--light);
+}
+
+.icon-list-social-link {
+  color: lightgray !important;
+}
+
+.icon-list-social-link:hover {
+  color: rgb(253, 101, 45) !important;
+}
+

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <link rel="stylesheet" href="{{url_for('.static', filename='index.css')}}">
+  <h3 class="page-header my-5">
+    <p>Loan Calc is an amortization loan payment calculator</p>
+    <p>that estimates loan repayment and other information.</p>
+  </h3>
+  <div class="justify-content-center">
+    <form method = "post">
+      <p class="button">
+          <a href="/calc" class="btn btn-gradient-primary-to-secondary text-light fw-bolder btn-lg" role="button" aria-pressed="true">Go To Loan Calc!</a>
+      </p>
+    </form>
+  </div>  
+{% endblock %}

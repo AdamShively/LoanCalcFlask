@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{url_for('.static', filename='calc.css')}}">
+
+<a id="top"></a>
+<div class="row my-5 justify-content-center">
+    <div class="col-8 col-lg-5 me-lg-3 bg-gray rounded-pill "align="center">
+      <form method="post">
+        <div class="form-row fw-bold my-3">
+          <div class="form-group col-12">
+            <label class="text-light pt-2">Amount ($):</label>
+            <input type="text" step="0.01" class="form-control bg-light" id="value" placeholder="Enter Amount"
+              name="amount" data-type="currency" maxlength="11" required />
+          </div>
+          <div class="form-group col-12">
+            <label class="text-light">Term (years):</label>
+            <input type="number" step="0.01" class="form-control bg-light" placeholder="Enter Term" name="term" min="1"
+              max="30" required />
+          </div>
+          <div class="form-group col-12">
+            <label class="text-light">Rate (%):</label>
+            <input type="number" step="0.25" class="form-control bg-light" placeholder="Enter Rate" name="rate" min="1"
+              max="100" required />
+          </div>
+        </div>
+        <div class="col-12 d-flex justify-content-center my-3">
+          <button id="btnSubmit" type="submit" class="btn btn-gradient-primary-to-secondary text-light fw-bolder btn-md">Calculate!</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-8 col-lg-5 mt-5 mt-lg-0 ms-lg-3 py-5 bg-gray rounded-pill justify-content-center">
+      <h3 class="info-header mt-lg-4">Monthly Payments: {{values[1][0] if values}}</h3>
+        <div class="text">
+          <text>Total Principal:</text>
+          <text class="text">{{values[1][1] if values}}</text>
+        </div>
+        <div class="text">
+          <text>Total Interest:</text>
+          <text class="text">{{values[1][2] if values}}</text>
+        <div class="text">
+          <text>Total Cost:</text>
+          <text class="text">{{values[1][3] if values}}</text>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  {% if values[0] %}
+  <div class="col">
+    <h2 class="sub-header">Monthly Amortization Schedule</h2>
+    <div class="table-responsive" align="center">
+      <table class="table">
+        <thead>
+          <tr class="columns">
+            <th class="text">Month</th>
+            <th class="text">Payment</th>
+            <th class="text">Principal</th>
+            <th class="text">Interest</th>
+            <th class="text">Total Interest</th>
+            <th class="text">Balance</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if values %}
+          {% for item in values[0] %}
+          <tr>
+            <td class="schedule-info">{{item.month}}</td>
+            <td class="schedule-info">{{item.payment}}</td>
+            <td class="schedule-info">{{item.principal}}</td>
+            <td class="schedule-info">{{item.interest}}</td>
+            <td class="schedule-info">{{item.total_interest}}</td>
+            <td class="schedule-info">{{item.balance}}</td>
+          </tr>
+          {% endfor %}
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+    <a class="nav-link text-center text-orange mt-5" href="#top">Back to Top</a>
+  </div>
+  {% endif %}
+  <script src="https://code.jquery.com/jquery.min.js"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='input.js') }}"></script>
+</div>
+{% endblock %}
